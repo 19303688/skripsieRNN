@@ -1,0 +1,81 @@
+-- Learning Rate 0.001 --
+
+Config 1: {'hidden_layers': 2, 'neurons': 128, 'epochs': 500, 'batch_size': 32, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0038    | 0.0210    | 0.0236
+MAPE: 10351.0596| 22.1291   | 23.0664
+RMSE: 0.0613    | 0.1450    | 0.1535
+
+Config 2: {'hidden_layers': 2, 'neurons': 128, 'epochs': 500, 'batch_size': 64, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0038    | 0.0194    | 0.0190
+MAPE: 6871.0913 | 21.7959   | 21.0536
+RMSE: 0.0619    | 0.1392    | 0.1377
+
+Config 3: {'hidden_layers': 2, 'neurons': 128, 'epochs': 500, 'batch_size': 128, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0044    | 0.0196    | 0.0172
+MAPE: 9875.7803 | 21.5409   | 19.9257
+RMSE: 0.0662    | 0.1398    | 0.1311
+
+Config 4: {'hidden_layers': 2, 'neurons': 256, 'epochs': 500, 'batch_size': 32, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0026    | 0.0209    | 0.0203
+MAPE: 7065.5757 | 21.2163   | 21.7208
+RMSE: 0.0511    | 0.1447    | 0.1425
+
+Config 5: {'hidden_layers': 2, 'neurons': 256, 'epochs': 500, 'batch_size': 64, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0025    | 0.0226    | 0.0244
+MAPE: 8518.9033 | 22.7843   | 22.2606 
+RMSE: 0.0495    | 0.1502    | 0.1561  
+
+Config 6: {'hidden_layers': 2, 'neurons': 256, 'epochs': 500, 'batch_size': 128, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0027    | 0.0219    |  0.0182
+MAPE: 5495.0361 | 22.6780   | 20.3148 
+RMSE: 0.0522    | 0.1481    |  0.1348
+
+Config 7: {'hidden_layers': 3, 'neurons': 128, 'epochs': 500, 'batch_size': 32, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0032    | 0.0193    | 0.0180 
+MAPE: 8477.3535 | 20.4149   | 20.4062  
+RMSE: 0.0565    | 0.1390    | 0.1340 
+
+Config 8: {'hidden_layers': 3, 'neurons': 128, 'epochs': 500, 'batch_size': 64, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0031    | 0.0200    | 0.0180 
+MAPE: 6414.8179 | 20.9284   | 20.0413 
+RMSE: 0.0555    | 0.1416    | 0.1341
+
+Config 9: {'hidden_layers': 3, 'neurons': 128, 'epochs': 500, 'batch_size': 128, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0032    | 0.0199    | 0.0189 
+MAPE: 7014.3193 | 21.3858   | 20.1314 
+RMSE: 0.0563    | 0.1410    | 0.1374
+
+Config 10: {'hidden_layers': 3, 'neurons': 256, 'epochs': 500, 'batch_size': 32, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0020    | 0.0200    | 0.0201
+MAPE: 7410.2251 | 20.7282   | 21.5659
+RMSE: 0.0450    | 0.1416    | 0.1419
+
+Config 11: {'hidden_layers': 3, 'neurons': 256, 'epochs': 500, 'batch_size': 64, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0015    | 0.0202    |  0.0197
+MAPE: 4278.8545 | 21.2471   |  21.1181
+RMSE: 0.0386    | 0.1421    |  0.1402
+Config 12: {'hidden_layers': 3, 'neurons': 256, 'epochs': 500, 'batch_size': 128, 'validation_split': 0.2}
+Training|Validation|Test
+Loss: 0.0015    | 0.0207    |  0.0199
+MAPE: 4753.0356 | 21.6335   |  21.3458
+RMSE: 0.0393    | 0.1439    |  0.1412
+
+-------------------------
+LR: 0.0007370796431462157
+Config 13 (7): {'hidden_layers': 3, 'neurons': 256,64,192, 'epochs': 50, 'batch_size': 256, 'validation_split': 0.2}
+Training|Validation|Test
+Loss:  0.0078   |  0.0154   | 0.0145
+MAPE: 20584.4609| 18.9694  | 17.6929
+RMSE:  0.0884   |  0.1242   | 0.1204
+-------------------------
