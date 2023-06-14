@@ -29,7 +29,6 @@ df = pd.read_csv('data_cleaned_R3.csv')
 
 df.loc[df["Coal Input"] < 30] = 0
 
-
 timeBackWindow, timeForwardWindow = 5, 2
 
 df_scaled = df
@@ -86,10 +85,11 @@ def timewindow_df(df, timeBackWindow, timeForwardWindow):
 #Time window the datasets
 manipulated_dataframes = []
 
+#---------------------------------------------------#
 for df in dataframes:
     manipulated_df = timewindow_df(df,timeBackWindow=timeBackWindow,timeForwardWindow=timeForwardWindow)
     manipulated_dataframes.append(manipulated_df)
-
+#---------------------------------------------------#
 
 # Print the number of rows for each dataset in the manipulated dataframes
 print(f"Number of manipulated datasets: {len(manipulated_dataframes)}")
@@ -141,9 +141,8 @@ class ANN(keras.Model):
     def __init__(self):
         super(ANN, self).__init__()
         self.input_layer = keras.layers.Dense(units=64, input_shape=(x_train.shape[0],), activation='relu')
-        self.hidden_layers = [keras.layers.Dense(units=256, activation='relu'),
-                              keras.layers.Dense(units=64, activation='relu'),
-                              keras.layers.Dense(units=192, activation='relu')]
+        self.hidden_layers = [keras.layers.Dense(units=224, activation='relu'),
+                              keras.layers.Dense(units=160, activation='relu')]
         self.output_layer = keras.layers.Dense(units=10, activation='linear')
 
     def call(self, inputs):
@@ -155,9 +154,13 @@ class ANN(keras.Model):
 
 model = ANN()
 
-loss_fn = tf.keras.losses.MeanSquaredError()
-optimizer = tf.keras.optimizers.Adam(learning_rate=0.0007370796431462157)
-model.compile(optimizer=optimizer, loss=loss_fn, metrics=[tf.keras.metrics.MeanAbsolutePercentageError(), tf.keras.metrics.RootMeanSquaredError()])
+# loss_fn = tf.keras.losses.MeanSquaredError()
+loss_fn = keras.losses.MeanAbsoluteError()
+optimizer = tf.keras.optimizers.Adam(learning_rate=0.0005058857837580419)
+model.compile(optimizer=optimizer, 
+              loss=loss_fn,
+              metrics=[tf.keras.metrics.MeanAbsolutePercentageError(), 
+                       tf.keras.metrics.RootMeanSquaredError()])
 
 # Build the model before training
 model.build((None, 55))
@@ -165,10 +168,10 @@ model.build((None, 55))
 print(model.summary())
 
 # Define EarlyStopping callback
-#early_stopping = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
+early_stopping = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
 
-#hist = model.fit(x_train, y_train, epochs=500, batch_size=256, validation_split=0.2, callbacks=[early_stopping])
-hist = model.fit(x_train, y_train, epochs=50, batch_size=256, validation_split=0.2)
+hist = model.fit(x_train, y_train, epochs=500, batch_size=16, validation_split=0.2, callbacks=[early_stopping])
+#hist = model.fit(x_train, y_train, epochs=50, batch_size=16, validation_split=0.2)
 
 loss, MAPE, RMSE = model.evaluate(x_test, y_test)
 forecast = model.predict(x_test)

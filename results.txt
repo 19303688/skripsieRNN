@@ -65,6 +65,7 @@ Training|Validation|Test
 Loss: 0.0015    | 0.0202    |  0.0197
 MAPE: 4278.8545 | 21.2471   |  21.1181
 RMSE: 0.0386    | 0.1421    |  0.1402
+
 Config 12: {'hidden_layers': 3, 'neurons': 256, 'epochs': 500, 'batch_size': 128, 'validation_split': 0.2}
 Training|Validation|Test
 Loss: 0.0015    | 0.0207    |  0.0199
@@ -78,4 +79,24 @@ Training|Validation|Test
 Loss:  0.0078   |  0.0154   | 0.0145
 MAPE: 20584.4609| 18.9694  | 17.6929
 RMSE:  0.0884   |  0.1242   | 0.1204
+-------------------------
+
+-------------------------
+Best Config Coal Rate cutoff 30 (results above cut off at 16)
+LR: 0.0003329029208362902
+Config 14 (7): {'hidden_layers': 2, 'neurons': 256, 256, 'epochs': 50, 'batch_size': 16, 'validation_split': 0.2}
+Training|Validation|Test
+Loss:  0.0087   |   0.0148  | 0.0125
+MAPE: 27469.9629| 19.3366   | 17.6455
+RMSE: 0.0932    |  0.1218   | 0.1119
+-------------------------
+
+-------------------------
+Best Config Coal Rate cutoff 30 (results above cut off at 16). The MAE was used instead of mean squared error.
+LR: 0.0005058857837580419
+Config 14 (7): {'hidden_layers': 2, 'neurons': 224, 160, 'epochs': 50, 'batch_size': 16, 'validation_split': 0.2}
+Training|Validation|Test
+Loss:  0.0598   |   0.0804  | 0.0817
+MAPE: 32022.6328| 19.2153   | 18.5203
+RMSE: 0.0938    |  0.1251   | 0.1174
 -------------------------

@@ -1,0 +1,12 @@
+-------------------------
+Config: encoder = GRU(10), decoder = GRU(10), output = dense(10)
+LR = 0.001, eta = 1E-8, mse loss, batch size 64,
+decay_rate = 1E-6
+Best Config Coal Rate cutoff 30 
+LR: 0.0005058857837580419
+Config 14 (7): {'hidden_layers': 2, 'neurons': 224, 160, 'epochs': 50, 'batch_size': 16, 'validation_split': 0.2}
+Training|Validation|Test
+Loss:  3.5173e-06   |   2.6618e-06  | 2.7580e-06
+MAPE: 6.9160        |  3.9705       | 5.0414
+RMSE: 0.0018        |  0.0016       | 0.0016
+-------------------------

@@ -165,7 +165,13 @@ class ANN(keras.Model):
 class ANNHyperModel(kt.HyperModel):
     def build(self, hp):
         model = ANN(hp)
-        loss_fn = keras.losses.MeanSquaredError()
+        # loss_fn = keras.losses.MeanSquaredError()
+        # The choice of loss function can affect how the model optimizes its parameters during training. 
+        # If the loss function is not appropriate for capturing volatility, such as mean squared error (MSE) 
+        # that tends to penalize larger errors more than smaller errors, the model may prioritize minimizing the 
+        # overall error rather than capturing the specific volatility patterns. In such cases, 
+        # alternative loss functions like mean absolute error (MAE) or Huber loss, which are less sensitive to outliers, may be more suitable.
+        loss_fn = keras.losses.MeanAbsoluteError()
         lr = hp.Float("lr", min_value=0.000001, max_value=0.001, sampling="log")
         optimizer = keras.optimizers.Adam(learning_rate=lr)
         model.compile(optimizer=optimizer, loss=loss_fn,
@@ -183,7 +189,7 @@ class ANNHyperModel(kt.HyperModel):
 tuner = kt.Hyperband(ANNHyperModel(),
                      objective='val_loss',
                      directory='keras_tuner',
-                     project_name='ann_kt')
+                     project_name='ann_kt_mae')
 
 stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5)
 tuner.search(x_train, y_train, epochs=100, 
